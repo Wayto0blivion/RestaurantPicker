@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="RestaurantList.js">
+	</script>
+</head>
+<body>
+
+<h1>Restaurant Picker</h1>
+<p id="RestaurantPara"></p>
+
+<button type="button" onclick="RandomRestaurant(myArray)">Need Help?</button>
+
+
+<script>
+
+function RandomRestaurant(myArray) {
+	var randomPick = myArray[Math.floor(Math.random()*myArray.length)];
+	document.getElementById("RestaurantPara").innerHTML = randomPick;
+}
+
+function readFile (file) {
+	var f = newXMLHttpRequest();
+	f.open("GET", file, false);
+	f.onreadystatechange = function ()
+	{
+		if(f.readyState === 4){
+			if(f.status === 200 || f.status === 0){
+				var res = f.responseText;
+				alert(res); // to see if contents are read
+			}
+		}
+	}
+	
+	f.send(null);
+
+}
+
+</script>
+
+</body>
+</html>
